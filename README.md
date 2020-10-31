@@ -2,7 +2,7 @@
 Two calendars and meeting duration. The output is a meeting suggestion.
 
 #### Sample calendar:
-![Alt text](doc/calendar_example.png?raw=true "Title")
+![Sample calendar](doc/calendar_example.png?raw=true "Sample calendar")
 
 #### Sample output:
 ```
