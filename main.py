@@ -82,6 +82,10 @@ def suggest_meeting(person, other_person, minutes):
 
 
 def main():
+    demo_data()
+
+
+def demo_data():
     peter = Person("Peter", "Black", "09:00", "20:00", "09:00 - 10:30, 12:00 - 13:00, 16:00 - 18:00")
     john = Person("John", "Doe", "10:00", "18:30", "10:00 - 11:30, 12:30 - 14:30, 14:30 - 15:00, 16:00 - 17:00")
     meeting_duration = 45
