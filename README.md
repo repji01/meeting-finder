@@ -1,7 +1,7 @@
 # Meeting finder
 Two calendars and meeting duration. The output is a meeting suggestion.
 
-##Sample output
+#### Sample output:
 
 ```
 Peter Black is working 09:00 - 20:00. Calendar meetings for today: 09:00-10:30, 12:00-13:00, 16:00-18:00 
