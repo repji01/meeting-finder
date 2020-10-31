@@ -1,4 +1,7 @@
+from datetime import datetime
+
 from person import Person
+import google_calendar
 
 
 def time_to_minutes(time_str):
@@ -81,8 +84,21 @@ def suggest_meeting(person, other_person, minutes):
     return times_suggested
 
 
-def main():
-    demo_data()
+def google_demo_data():
+    day = datetime.utcnow()
+
+    meet_str = ", ".join(f"{meeting.start_time.strftime('%H:%M')} - {meeting.end_time.strftime('%H:%M')}" for meeting in
+                         google_calendar.get_meetings(day, '#dc2127'))
+    peter = Person("Peter", "Black", "09:00", "20:00", meet_str)
+    print(peter)
+    meet_str = ", ".join(f"{meeting.start_time.strftime('%H:%M')} - {meeting.end_time.strftime('%H:%M')}" for meeting in
+                         google_calendar.get_meetings(day, '#9fe1e7'))
+    john = Person("John", "Doe", "10:00", "18:30", meet_str)
+    print(john)
+    meeting_duration = 45
+    print(f"We need meeting for {meeting_duration} minutes")
+    print(f"Times for meeting suggested for {peter.name} and {john.name} " +
+          ", ".join(f"{meet[0]}-{meet[1]}" for meet in suggest_meeting(peter, john, meeting_duration)))
 
 
 def demo_data():
@@ -94,6 +110,10 @@ def demo_data():
     print(f"We need meeting for {meeting_duration} minutes")
     print(f"Times for meeting suggested for {peter.name} and {john.name} " +
           ", ".join(f"{meet[0]}-{meet[1]}" for meet in suggest_meeting(peter, john, meeting_duration)))
+
+
+def main():
+    google_demo_data()
 
 
 if __name__ == '__main__':
